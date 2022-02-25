@@ -1,0 +1,6 @@
+<div class="relative ml-8">
+  <img src="/assets/icons/search.svg" class="w-4 opacity-40 absolute top-2 left-0">
+    <input type="text" [(ngModel)]="searchingValue" (ngModelChange)="searching()" class="transition-all delay-75 px-6 h-8 w-full min-w-0 border-b border-slate-300
+        outline-none focus:border-black hover:border-black" placeholder="Search">
+    <h1 class="absolute top-1 right-0 cursor-pointer" (click)="clear()" *ngIf="showClear">✕</h1>
+</div>

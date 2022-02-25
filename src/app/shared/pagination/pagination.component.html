@@ -1,0 +1,12 @@
+<div class="flex justify-center sm:justify-between flex-wrap px-6 py-10 transition-all">
+  <div class="flex flex-wrap justify-center">
+    <button class="transition-all delay-{25} py-[6px] px-4 mr-1 rounded-md bg-white bg-opacity-0 hover:bg-opacity-50"
+      [ngClass]="{'text-blue bg-opacity-100': i+1 === curPage}"
+      *ngFor="let page of pages; let i = index" (click)="updateQueryParams(i+1)">
+      {{ i + 1 }}
+    </button>
+  </div>
+  <div class="mt-5 sm:mt-0">
+    <app-filter></app-filter>
+  </div>
+</div>

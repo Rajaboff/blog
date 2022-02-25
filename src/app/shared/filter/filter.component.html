@@ -1,0 +1,15 @@
+<div class="flex">
+  <select class="py-[6px] px-2 outline-none cursor-pointer mx-1 rounded-md" [(ngModel)]="selectedLimit" (change)="updateQueryParams(1)">
+    <option *ngFor="let limit of limitOnPage" value="{{limit}}">{{ limit }}</option>
+  </select>
+  
+  <select class="py-[6px] px-2 outline-none cursor-pointer ml-2 rounded-md" [(ngModel)]="filter" (change)="updateQueryParams(1)">
+    <option value="A-Z">A-Z</option>
+    <option value="Z-A">Z-A</option>
+  </select>
+  
+  <button (click)="activateFavorite()" class=" transition-all duration-{30} w-[36px] h-[36px] bg-white rounded-md cursor-pointer ml-3 flex justify-center items-center" [ngClass]="{'bg-blue': favoriteActive}">
+    <img *ngIf="!favoriteActive" class="w-5" src="/assets/icons/heart.svg">
+    <img *ngIf="favoriteActive" class="w-5" src="/assets/icons/heart-white.svg">
+  </button>
+</div>

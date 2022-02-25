@@ -1,0 +1,14 @@
+<div (mouseenter)="showFavIcon=true; checkFav()" (mouseleave)="showFavIcon=false" class="relative">
+    <button (click)="addToFav()" class="transition-all duration-{40} absolute top-9 right-9 z-10 bg-white bg-opacity-10 flex justify-center items-center p-2 rounded-full opacity-0 hover:bg-opacity-20" [ngClass]="{'opacity-100': showFavIcon, 'bg-blue bg-opacity-95 hover:bg-opacity-70': addedToFav}">
+        <img class="w-4" src="/assets/icons/heart-white.svg">
+    </button>
+    <div (click)="showModal(true)" class="transition-all flex flex-col justify-between h-full rounded-xl p-6 cursor-pointer bg-white bg-opacity-50 hover:bg-opacity-100">
+        <div class="relative w-full h-56 rounded-xl bg-cover bg-center bg-no-repeat" [ngStyle]="{'background-image': getImgUrl()}"></div>
+        <div class="block">
+            <h3 class="mt-5 mb-1 text-lg font-extrabold ">{{ (title.length>6)? (title | uppercase | slice:0:23)+'...':(title)}}</h3>
+            <p class="text-sm">{{ (description.length>6)? (description | titlecase | slice:0:80)+'...':(description)}}</p>
+        </div>
+    </div>
+</div>
+
+<app-modal *ngIf="modalIsOpened" (closeModal)="showModal($event)" [title]="title" [description]="description" [imgUrl]="getImgUrl()"></app-modal>
